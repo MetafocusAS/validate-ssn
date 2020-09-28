@@ -1,4 +1,5 @@
 //Validation for swedish social security numbers
+//Credit to maets: http://maaets.blogspot.com/2012/06/validera-personnummer-med-javascript.htmlt
 
 function findMyHiddenBrother($input) {
 	var $validationField = $input.closest(".label_control").parent().parent().find("input[type=hidden]:first");
