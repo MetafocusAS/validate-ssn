@@ -32,9 +32,11 @@ Norwegian ssn:
 5. Returns true or false to the hidden input field
 
 **Swedish ssn script**: 
-//Takes following formats
-//ååmmddxxxx 
-//ååmmdd-xxxx
-//ååååmmddxxxx
-//ååååmmdd-xxxx
-//Also validates checksum for control-numbers
+1. Takes following formats:
+* ååmmddxxxx 
+* ååmmdd-xxxx
+* ååååmmddxxxx
+* ååååmmdd-xxxx
+2. Checks input length
+3. Validates checksum for control-numbers
+4. Returns true or false to hidden input field
