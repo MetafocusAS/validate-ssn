@@ -24,11 +24,11 @@ Norwegian ssn:
 **NOTE:** Hidden input and name in validation expression must be the same. 
 
 # How does it work
-* **Norwegian ssn script**: 
+**Norwegian ssn script**: 
 1. Event sends the input element to the function validateSocialSecurityNumberNo
 2. Function checks input length matches that of the input field maxlength
 3. If valid checks the control numbers
 4. Runs a MOD11 algorithm on the last ssn-number https://no.wikipedia.org/wiki/MOD11
 5. Returns true or false to the hidden input field
 
-* **Swedish ssn script**: 
+**Swedish ssn script**: 
