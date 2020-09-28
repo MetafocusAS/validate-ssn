@@ -38,5 +38,5 @@ Norwegian ssn:
 * ååååmmddxxxx
 * ååååmmdd-xxxx
 2. Checks input length
-3. Validates checksum for control-numbers
+3. Validates control-numbers checksum using MOD10 algorithm https://no.wikipedia.org/wiki/MOD10
 4. Returns true or false to hidden input field
