@@ -1,5 +1,5 @@
-# ssn-validation
-ssn-validation validates the format of both Norwegian and Swedish social security numbers. 
+# validate-ssn
+validate-ssn validates the format of both Norwegian and Swedish social security numbers. 
 They check if the date input is valid and that the control-numbers sum is correct.
 
 # How to use
