@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--================================================================-->
+<!-- Metafocus Digiforms Document Designer                          -->
+<!-- XFO:document xsl-version 1.1                                   -->
+<!-- Version: 5.5.98                                                -->
+<!-- Author: 2,                                                     -->
+<!--================================================================-->
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:java="http://xml.apache.org/xalan/java/java.lang" xmlns:digiforms="http://www.digiforms.com/digiforms" xmlns:xfc="http://www.digiforms.com/xfc" xmlns:xfo="http://www.digiforms.com/xfo" xmlns:fox="http://xmlgraphics.apache.org/fop/extensions">
+<xsl:output method="xml" indent="no"></xsl:output>
+
+<!--================================================================-->
+<!-- SCRIPT Includes                                                -->
+<!--================================================================-->
+<xsl:variable name="xfo:scripts">
+  <xfo:script language="javascript" href="documentDB?documentName=testssn_swed_nor"></xfo:script>
+  <xfo:script language="javascript" href="documentDB?documentName=form-controls.min"></xfo:script>
+</xsl:variable>
+
+<!--================================================================-->
+<!-- CSS Includes                                                   -->
+<!--================================================================-->
+<xsl:variable name="xfo:css">
+  <xfo:css href="documentDB?documentName=form-controls-css.min"></xfo:css>
+</xsl:variable>
+
+<!--================================================================-->
+<!-- Match root element and apply triggering node template          -->
+<!--================================================================-->
+<xsl:template match="/">
+    <xsl:apply-templates select="doc"></xsl:apply-templates>
+</xsl:template>
+
+<!--================================================================-->
+<!-- Triggering template set up pages and calls rest of templates   -->
+<!--================================================================-->
+<xsl:template match="doc">
+    <fo:root>
+    <xsl:call-template name="mastersetup"></xsl:call-template>
+    <xsl:apply-templates></xsl:apply-templates>
+    </fo:root>
+</xsl:template>
+
+<!--================================================================-->
+<!-- Document Page Masters                                          -->
+<!--================================================================-->
+<xsl:template name="mastersetup">
+<fo:layout-master-set>
+<fo:simple-page-master master-name="A4" page-width="210.00mm" page-height="297.00mm" margin-top="10.00mm" margin-bottom="10.00mm" margin-left="10.00mm" margin-right="10.00mm">
+<fo:region-body margin-top="10.00mm" margin-bottom="10.00mm" margin-left="0.00mm" margin-right="0.00mm" border-width="0.00mm"></fo:region-body>
+<fo:region-before extent="10.00mm" precedence="false" border-width="0.00mm"></fo:region-before>
+<fo:region-after extent="10.00mm" precedence="false" border-width="0.00mm"></fo:region-after>
+<fo:region-start extent="0.00mm" border-width="0.00mm"></fo:region-start>
+<fo:region-end extent="0.00mm" border-width="0.00mm"></fo:region-end>
+</fo:simple-page-master>
+</fo:layout-master-set>
+</xsl:template>
+
+<!--================================================================-->
+<!-- Templates                                                      -->
+<!--================================================================-->
+<!--xfo:page-template id="id-0bceaccf-0c28d5c0" scale="true"-->
+<xsl:template match="template">
+<fo:page-sequence master-reference="A4">
+<fo:flow flow-name="xsl-region-body">
+<!--xfo:group-box id="test-ssn-swed-container" ref=""-->
+<fo:block-container background-color="#FFFFFF" border-width="0.00mm" font-family="Helvetica" font-size="10.00pt" text-align="start" font-weight="normal" font-style="normal" text-decoration="none" color="#000000">
+<!--xfo:group-box-content id="test-ssn-swed-container_content" -->
+<fo:block-container margin-top="2.00mm" margin-bottom="2.00mm" margin-left="2.00mm" margin-right="2.00mm">
+<fo:block-container margin="0mm">
+<fo:block>
+<!--xfo:label id="id-2ceaa6e8-02c14c90" layout="before"-->
+<fo:block-container space-before="5.00mm" space-before.conditionality="retain" keep-together.within-page="always">
+<fo:block-container margin="0mm"><fo:block line-height="1.3" font-family="Segoe UI" font-size="11.00pt" text-align="start" font-weight="bold" font-style="normal" text-decoration="none" color="#333333">Svensk personnummer</fo:block>
+<!--xfo:text-box id="id-2cea52bd-02bfe5a8" class="inputfelt input-field numeric-text ssn-se-mask" ref="nationalidSwed" fieldvalue="" isdefault="false" update="render" taborder="0" placeholder="ÅÅÅÅMMDD-NNNN (12 siffror)"-->
+<fo:block height="7.39mm" background-color="#FFFFFF" border-style="solid" border-width="0.10mm" font-family="SEB SansSerif" font-size="12.00pt" text-align="start" font-weight="normal" font-style="normal" text-decoration="none" color="#000000">
+<xsl:variable name="eventlisteners">
+<event id="OnKeyDown" handlertype="Button" handler="cmd_run_javascript" validate="none">
+ <parameter name="javascript"><![CDATA[clearErrormessage(this);]]></parameter>
+</event>
+<event id="OnChange" handlertype="Button" handler="cmd_run_javascript" validate="">
+ <parameter name="javascript"><![CDATA[testSwedFnr($(this));]]></parameter>
+</event>
+<event id="OnBlur" handlertype="Button" handler="cmd_run_javascript" validate="none">
+ <parameter name="javascript"><![CDATA[testSwedFnr($(this));]]></parameter>
+</event>
+</xsl:variable>
+<xsl:variable name="validation">
+<xsl:variable name="ErrorMessage"><![CDATA[Ange personnummer (12 siffror)]]></xsl:variable>
+<xsl:variable name="Required"><![CDATA[true]]></xsl:variable>
+<xsl:variable name="ValidationType"><![CDATA[assert:valid-ssn-swed = 'true']]></xsl:variable>
+<xsl:variable name="NumberOfCharacters"><![CDATA[13,13]]></xsl:variable>
+<xsl:variable name="CompareWith"><![CDATA[]]></xsl:variable>
+</xsl:variable>
+<fo:block margin-top="1.00mm" margin-left="1.00mm" margin-right="1.00mm" margin-bottom="1.00mm">
+<xsl:value-of select="nationalidSwed"></xsl:value-of>
+<xsl:if test="string-length(nationalidSwed)=0"> </xsl:if>
+</fo:block>
+</fo:block>
+</fo:block-container></fo:block-container>
+<!--xfo:text-box id="id-2cea52bd-02bff0f0" ref="valid-ssn-swed" fieldvalue="false" isdefault="true" update="render" taborder="0" input-type="hidden"-->
+<fo:block height="6.51mm" border-style="solid" border-width="0.10mm" font-family="Helvetica" font-size="10.00pt" text-align="start" font-weight="normal" font-style="normal" text-decoration="none" color="#000000">
+<fo:block margin-top="1.00mm" margin-left="1.00mm" margin-right="1.00mm" margin-bottom="1.00mm">
+<xsl:value-of select="valid-ssn-swed"></xsl:value-of>
+<xsl:if test="string-length(valid-ssn-swed)=0"> </xsl:if>
+</fo:block>
+</fo:block>
+<!--xfo:button id="id-14b105b8-20687d40" taborder="0"-->
+<fo:block width="186.00mm" height="12.00mm">
+<xsl:variable name="border-and-background-properties"><style background-color="#C0C0C0" border-style="solid" border-width="0.10mm"></style></xsl:variable>
+<xsl:variable name="font-properties"><style font-family="Helvetica" font-size="10.00pt" text-align="center" font-weight="normal" font-style="normal" text-decoration="none" color="#000000"></style></xsl:variable>
+<xsl:variable name="ButtonValue"><![CDATA[Validate]]></xsl:variable>
+<xsl:variable name="eventlisteners">
+<event id="OnClick" handlertype="Submit" handler="cmd_cache_update" validate="page">
+</event>
+</xsl:variable>
+</fo:block>
+</fo:block>
+</fo:block-container>
+</fo:block-container>
+</fo:block-container>
+<!--xfo:group-box id="test-ssn-nor-container" ref=""-->
+<fo:block-container background-color="#FFFFFF" border-width="0.00mm" font-family="Helvetica" font-size="10.00pt" text-align="start" font-weight="bold" font-style="normal" text-decoration="none" color="#000000">
+<!--xfo:group-box-content id="test-ssn-nor-container_content" -->
+<fo:block-container margin-top="2.00mm" margin-bottom="2.00mm" margin-left="2.00mm" margin-right="2.00mm">
+<fo:block-container margin="0mm">
+<fo:block>
+<!--xfo:label id="id-2cec6adf-02c14c10" layout="before"-->
+<fo:block-container keep-together.within-page="always">
+<fo:block-container margin="0mm"><fo:block line-height="1.3" font-family="Helvetica" font-size="10.00pt" text-align="start" font-weight="bold" font-style="normal" text-decoration="none" color="#000000">Fødselsnummer norsk</fo:block>
+<!--xfo:text-box id="id-2cec6adf-02bff058" class="inputfelt input-field numeric-text ssn-no-mask " ref="nationalidNor" fieldvalue="" isdefault="false" update="render" taborder="0" placeholder="DDMMÅÅÅÅ-NNNN (11 siffer)"-->
+<fo:block height="6.51mm" border-style="solid" border-width="0.10mm" font-family="Helvetica" font-size="10.00pt" text-align="start" font-weight="normal" font-style="normal" text-decoration="none" color="#000000">
+<xsl:variable name="eventlisteners">
+<event id="OnChange" handlertype="Button" handler="cmd_run_javascript" validate="">
+ <parameter name="javascript"><![CDATA[validateSocialSecurityNumberNo($(this));console.log($(this));]]></parameter>
+</event>
+<event id="OnBlur" handlertype="Button" handler="cmd_run_javascript" validate="none">
+ <parameter name="javascript"><![CDATA[validateSocialSecurityNumberNo($(this));console.log($(this));]]></parameter>
+</event>
+</xsl:variable>
+<xsl:variable name="validation">
+<xsl:variable name="ErrorMessage"><![CDATA[Du må oppgi et gyldig fødselsnummer]]></xsl:variable>
+<xsl:variable name="Required"><![CDATA[true]]></xsl:variable>
+<xsl:variable name="ValidationType"><![CDATA[assert:valid-ssn-nor = 'true']]></xsl:variable>
+<xsl:variable name="NumberOfCharacters"><![CDATA[11,11]]></xsl:variable>
+<xsl:variable name="CompareWith"><![CDATA[]]></xsl:variable>
+</xsl:variable>
+<fo:block margin-top="1.00mm" margin-left="1.00mm" margin-right="1.00mm" margin-bottom="1.00mm">
+<xsl:value-of select="nationalidNor"></xsl:value-of>
+<xsl:if test="string-length(nationalidNor)=0"> </xsl:if>
+</fo:block>
+</fo:block>
+</fo:block-container></fo:block-container>
+<!--xfo:text-box id="validering_nor" ref="valid-ssn-nor" fieldvalue="false" isdefault="true" update="render" taborder="0" input-type="hidden"-->
+<fo:block height="6.51mm" border-style="solid" border-width="0.10mm" font-family="Helvetica" font-size="10.00pt" text-align="start" font-weight="normal" font-style="normal" text-decoration="none" color="#000000">
+<fo:block margin-top="1.00mm" margin-left="1.00mm" margin-right="1.00mm" margin-bottom="1.00mm">
+<xsl:value-of select="valid-ssn-nor"></xsl:value-of>
+<xsl:if test="string-length(valid-ssn-nor)=0"> </xsl:if>
+</fo:block>
+</fo:block>
+<!--xfo:button id="id-2cec6adf-02c244b0" taborder="0"-->
+<fo:block width="186.00mm" height="12.00mm">
+<xsl:variable name="border-and-background-properties"><style background-color="#C0C0C0" border-style="solid" border-width="0.10mm"></style></xsl:variable>
+<xsl:variable name="font-properties"><style font-family="Helvetica" font-size="10.00pt" text-align="center" font-weight="normal" font-style="normal" text-decoration="none" color="#000000"></style></xsl:variable>
+<xsl:variable name="ButtonValue"><![CDATA[Valider]]></xsl:variable>
+<xsl:variable name="eventlisteners">
+<event id="OnClick" handlertype="Ajax" handler="cmd_cache_update" validate="container">
+ <parameter name="id" ajax="true"><![CDATA[test-ssn-nor-container]]></parameter>
+</event>
+</xsl:variable>
+</fo:block>
+</fo:block>
+</fo:block-container>
+</fo:block-container>
+</fo:block-container>
+</fo:flow>
+</fo:page-sequence>
+<xsl:apply-templates></xsl:apply-templates>
+</xsl:template>
+
+</xsl:stylesheet>
