@@ -76,6 +76,7 @@ var testSwedFnr =
             return $validationField.val((sum % 10) === 0);
         }
 
+//Function for validating Norwegian ssn control numbers
 function validationMOD11(val, weightNumber, ignoreLength) {
 	var number = removeWhiteSpaces(val);
 
@@ -104,11 +105,14 @@ function validationMOD11(val, weightNumber, ignoreLength) {
 	}
 }
 
+//Find hidden input fields
 function findMyHiddenBrother($input) {
 	var $validationField = $input.closest(".label_control").parent().parent().find("input[type=hidden]:first");
 	return $validationField;
 }
 
+
+//Remove spaces and - 
 function removeWhiteSpaces(str) {
 	var subStrings = str.replace(/[- ]/g, ""); 
 	return subStrings; 
