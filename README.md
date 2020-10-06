@@ -42,4 +42,6 @@ Norwegian ssn:
 4. Returns true or false to hidden input field
 
 # testssn (jsp)
-You can also install testssn on the server and connect it to a Digiforms template using a datasource.
+You can also install testssn on the server and connect it to a Digiforms template using a datasource:
+http://localhost/digiforms/util/testssn.jsp?ssn={$ssn}
+It will then return <test>true</test> if the ssn is valid. 
