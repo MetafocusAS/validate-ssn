@@ -1,4 +1,4 @@
-# validate-ssn
+# testssn (js)
 validate-ssn validates the format of both Norwegian and Swedish social security numbers using MOD11 and MOD10 algorithms respectively. 
 They check if the date input is valid and that the control-numbers sum is correct.
 
@@ -40,3 +40,6 @@ Norwegian ssn:
 2. Checks input length
 3. Validates control-numbers checksum using MOD10 algorithm https://no.wikipedia.org/wiki/MOD10
 4. Returns true or false to hidden input field
+
+# testssn (jsp)
+You can also install testssn on the server and connect it to a Digiforms template using a datasource.
